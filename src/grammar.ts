@@ -1,5 +1,6 @@
 import { TOKENS } from './tokens';
 import * as fs from 'fs';
+import * as path from 'path';
 
 let grammar = {
     lex: {
@@ -100,7 +101,7 @@ let grammar = {
     actionInclude: null
 };
 
-grammar.moduleInclude = fs.readFileSync(require.resolve("../include/module.js"));
-grammar.actionInclude = fs.readFileSync(require.resolve("../include/action.js"));
+grammar.moduleInclude = fs.readFileSync(path.join(__dirname, '..', 'include', 'module.js')).toString();
+grammar.actionInclude = fs.readFileSync(path.join(__dirname, '..', 'include', 'action.js')).toString();
 
 export const GRAMMAR = grammar;
