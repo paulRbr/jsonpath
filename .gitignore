@@ -1,4 +1,2 @@
-node_modules
-generated/aesprim-browser.js
-legacy-dist/
+node_modules/
 dist/

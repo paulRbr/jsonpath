@@ -1,0 +1,5 @@
+.circleci/
+fixtures/
+dist/test.js
+dist/**/*.test.js
+node_modules/
