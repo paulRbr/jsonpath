@@ -2,7 +2,7 @@
   "name": "@astronautlabs/jsonpath",
   "private": false,
   "description": "Query JavaScript objects with JSONPath expressions. Robust / safe JSONPath engine for Node.js.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "wilahti@gmail.com, david@fmail.co.uk",
   "scripts": {
     "clean": "rimraf dist",
