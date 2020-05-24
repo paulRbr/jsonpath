@@ -5,7 +5,8 @@
   "version": "1.0.2",
   "author": "wilahti@gmail.com, david@fmail.co.uk",
   "scripts": {
-    "build": "tsc -p .",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc -p .",
     "generate": "ts-node generate-parser.ts",
     "test": "npm run build && node dist/test.js"
   },
@@ -33,6 +34,7 @@
     "mkdirp": "^1.0.4",
     "mocha": "2.1.0",
     "razmin": "^0.6.13",
+    "rimraf": "^3.0.2",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.3"
   },
