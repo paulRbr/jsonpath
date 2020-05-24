@@ -1,8 +1,6 @@
 import { suite } from 'razmin';
 import * as assert from 'assert';
-
-import { JSONPath } from '.';
-//let JSONPath : never;
+import { JSONPath } from './jsonpath';
 
 suite(describe => {
   describe('parse', it => {

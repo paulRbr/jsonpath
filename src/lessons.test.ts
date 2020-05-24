@@ -2,7 +2,7 @@ import { suite } from 'razmin';
 import * as assert from 'assert';
 import * as fs from 'fs';
 import * as path from 'path';
-import { JSONPath } from '.';
+import { JSONPath } from './jsonpath';
 
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'fixtures', 'store.json')).toString());
 

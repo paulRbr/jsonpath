@@ -1,6 +1,7 @@
 import * as assert from 'assert';
+
 import { suite, describe } from 'razmin';
-import { JSONPath } from '.';
+import { JSONPath } from './jsonpath';
 
 suite(function() {
   describe('stringify', it => {

@@ -1,6 +1,6 @@
 import * as assert from 'assert';
-import { suite } from 'razmin';
 
+import { suite } from 'razmin';
 import { slice } from './slice';
 
 var data = ['a', 'b', 'c', 'd', 'e', 'f'];
