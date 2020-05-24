@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/dchester/jsonpath.png?branch=master)](https://travis-ci.org/dchester/jsonpath)
-
-# jsonpath
+# @astronautlabs/jsonpath [![CircleCI](https://circleci.com/gh/astronautlabs/jsonpath.svg?style=svg)](https://circleci.com/gh/astronautlabs/jsonpath)
 
 Query JavaScript objects with JSONPath expressions. 
 Robust / safe JSONPath engine for Node.js.
