@@ -2,21 +2,23 @@
 
 # jsonpath
 
-Query JavaScript objects with JSONPath expressions.  Robust / safe JSONPath engine for Node.js.
+Query JavaScript objects with JSONPath expressions. 
+Robust / safe JSONPath engine for Node.js.
 
 
 ## Query Example
 
 ```javascript
-var cities = [
+import { JSONPath } from '@astronautlabs/jsonpath';
+
+let cities = [
   { name: "London", "population": 8615246 },
   { name: "Berlin", "population": 3517424 },
   { name: "Madrid", "population": 3165235 },
   { name: "Rome",   "population": 2870528 }
 ];
 
-var jp = require('jsonpath');
-var names = jp.query(cities, '$..name');
+var names = JSONPath.query(cities, '$..name');
 
 // [ "London", "Berlin", "Madrid", "Rome" ]
 ```
@@ -25,7 +27,7 @@ var names = jp.query(cities, '$..name');
 
 Install from npm:
 ```bash
-$ npm install jsonpath
+$ npm install @astronautlabs/jsonpath
 ```
 
 ## JSONPath Syntax
