@@ -1,12 +1,11 @@
-var dict = require('./dict');
-var fs = require('fs');
-var grammar = {
+import { TOKENS } from './tokens';
+import * as fs from 'fs';
 
+let grammar = {
     lex: {
-
         macros: {
             esc: "\\\\",
-            int: dict.integer
+            int: TOKENS.integer
         },
 
         rules: [
@@ -14,14 +13,14 @@ var grammar = {
             ["\\.\\.", "return 'DOT_DOT'"],
             ["\\.", "return 'DOT'"],
             ["\\*", "return 'STAR'"],
-            [dict.identifier, "return 'IDENTIFIER'"],
+            [TOKENS.identifier, "return 'IDENTIFIER'"],
             ["\\[", "return '['"],
             ["\\]", "return ']'"],
             [",", "return ','"],
             ["({int})?\\:({int})?(\\:({int})?)?", "return 'ARRAY_SLICE'"],
             ["{int}", "return 'INTEGER'"],
-            [dict.qq_string, "yytext = yytext.substr(1,yyleng-2); return 'QQ_STRING';"],
-            [dict.q_string, "yytext = yytext.substr(1,yyleng-2); return 'Q_STRING';"],
+            [TOKENS.qq_string, "yytext = yytext.substr(1,yyleng-2); return 'QQ_STRING';"],
+            [TOKENS.q_string, "yytext = yytext.substr(1,yyleng-2); return 'Q_STRING';"],
             ["\\(.+?\\)(?=\\])", "return 'SCRIPT_EXPRESSION'"],
             ["\\?\\(.+?\\)(?=\\])", "return 'FILTER_EXPRESSION'"]
         ]
@@ -96,11 +95,12 @@ var grammar = {
         STRING_LITERAL: [
                 [ 'QQ_STRING', "$$ = $1" ],
                 [ 'Q_STRING',  "$$ = $1" ] ]
-    }
+    },
+    moduleInclude: null,
+    actionInclude: null
 };
-if (fs.readFileSync) {
-  grammar.moduleInclude = fs.readFileSync(require.resolve("../include/module.js"));
-  grammar.actionInclude = fs.readFileSync(require.resolve("../include/action.js"));
-}
 
-module.exports = grammar;
+grammar.moduleInclude = fs.readFileSync(require.resolve("../include/module.js"));
+grammar.actionInclude = fs.readFileSync(require.resolve("../include/action.js"));
+
+export const GRAMMAR = grammar;

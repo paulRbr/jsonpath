@@ -1,5 +1,10 @@
-module.exports = function(arr, start, end, step) {
 
+export function slice(arr : any[], start? : number, end? : number, step? : number) {
+  function integer(val) {
+    return String(val).match(/^[0-9]+$/) ? parseInt(val) :
+      Number.isFinite(val) ? parseInt(val, 10) : 0;
+  }
+  
   if (typeof start == 'string') throw new Error("start cannot be a string");
   if (typeof end == 'string') throw new Error("end cannot be a string");
   if (typeof step == 'string') throw new Error("step cannot be a string");
@@ -33,9 +38,4 @@ module.exports = function(arr, start, end, step) {
   }
 
   return result;
-}
-
-function integer(val) {
-  return String(val).match(/^[0-9]+$/) ? parseInt(val) :
-    Number.isFinite(val) ? parseInt(val, 10) : 0;
 }
