@@ -23,7 +23,7 @@
   "devDependencies": {
     "@types/assert": "^1.4.7",
     "@types/chai": "^4.2.11",
-    "@types/node": "^14.0.1",
+    "@types/node": "14.0.1",
     "@types/static-eval": "^0.2.30",
     "@types/underscore": "^1.10.0",
     "chai": "^4.2.0",
