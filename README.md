@@ -105,7 +105,7 @@ JSONPath                      | Description
 
 ## Methods
 
-#### jp.query(obj, pathExpression[, count])
+#### JSONPath.query(obj, pathExpression[, count])
 
 Find elements in `obj` matching `pathExpression`.  Returns an array of elements that satisfy the provided JSONPath expression, or an empty array if none were matched.  Returns only first `count` elements if specified.
 
@@ -114,7 +114,7 @@ var authors = jp.query(data, '$..author');
 // [ 'Nigel Rees', 'Evelyn Waugh', 'Herman Melville', 'J. R. R. Tolkien' ]
 ```
 
-#### jp.paths(obj, pathExpression[, count])
+#### JSONPath.paths(obj, pathExpression[, count])
 
 Find paths to elements in `obj` matching `pathExpression`.  Returns an array of element paths that satisfy the provided JSONPath expression. Each path is itself an array of keys representing the location within `obj` of the matching element.  Returns only first `count` paths if specified.
 
@@ -129,7 +129,7 @@ var paths = jp.paths(data, '$..author');
 // ]
 ```
 
-#### jp.nodes(obj, pathExpression[, count])
+#### JSONPath.nodes(obj, pathExpression[, count])
 
 Find elements and their corresponding paths in `obj` matching `pathExpression`.  Returns an array of node objects where each node has a `path` containing an array of keys representing the location within `obj`, and a `value` pointing to the matched element.  Returns only first `count` nodes if specified.
 
@@ -143,15 +143,15 @@ var nodes = jp.nodes(data, '$..author');
 // ]
 ```
 
-#### jp.value(obj, pathExpression[, newValue])
+#### JSONPath.value(obj, pathExpression[, newValue])
 
 Returns the value of the first element matching `pathExpression`.  If `newValue` is provided, sets the value of the first matching element and returns the new value.
 
-#### jp.parent(obj, pathExpression)
+#### JSONPath.parent(obj, pathExpression)
 
 Returns the parent of the first matching element.
 
-#### jp.apply(obj, pathExpression, fn)
+#### JSONPath.apply(obj, pathExpression, fn)
 
 Runs the supplied function `fn` on each matching element, and replaces each matching element with the return value from the function.  The function accepts the value of the matching element as its only parameter.  Returns matching nodes with their updated values.
 
@@ -166,7 +166,7 @@ var nodes = jp.apply(data, '$..author', function(value) { return value.toUpperCa
 // ]
 ```
 
-#### jp.parse(pathExpression)
+#### JSONPath.parse(pathExpression)
 
 Parse the provided JSONPath expression into path components and their associated operations.
 
@@ -178,7 +178,7 @@ var path = jp.parse('$..author');
 // ]
 ```
 
-#### jp.stringify(path)
+#### JSONPath.stringify(path)
 
 Returns a path expression in string form, given a path.  The supplied path may either be a flat array of keys, as returned by `jp.nodes` for example, or may alternatively be a fully parsed path expression in the form of an array of path components as returned by `jp.parse`.
 
