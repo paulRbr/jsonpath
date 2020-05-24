@@ -16,7 +16,7 @@ let cities = [
   { name: "Rome",   "population": 2870528 }
 ];
 
-var names = JSONPath.query(cities, '$..name');
+let names = JSONPath.query(cities, '$..name');
 
 // [ "London", "Berlin", "Madrid", "Rome" ]
 ```
@@ -110,7 +110,7 @@ JSONPath                      | Description
 Find elements in `obj` matching `pathExpression`.  Returns an array of elements that satisfy the provided JSONPath expression, or an empty array if none were matched.  Returns only first `count` elements if specified.
 
 ```javascript
-var authors = jp.query(data, '$..author');
+let authors = jp.query(data, '$..author');
 // [ 'Nigel Rees', 'Evelyn Waugh', 'Herman Melville', 'J. R. R. Tolkien' ]
 ```
 
@@ -120,7 +120,7 @@ Find paths to elements in `obj` matching `pathExpression`.  Returns an array of 
 
 
 ```javascript
-var paths = jp.paths(data, '$..author');
+let paths = jp.paths(data, '$..author');
 // [
 //   ['$', 'store', 'book', 0, 'author'] },
 //   ['$', 'store', 'book', 1, 'author'] },
@@ -134,7 +134,7 @@ var paths = jp.paths(data, '$..author');
 Find elements and their corresponding paths in `obj` matching `pathExpression`.  Returns an array of node objects where each node has a `path` containing an array of keys representing the location within `obj`, and a `value` pointing to the matched element.  Returns only first `count` nodes if specified.
 
 ```javascript
-var nodes = jp.nodes(data, '$..author');
+let nodes = jp.nodes(data, '$..author');
 // [
 //   { path: ['$', 'store', 'book', 0, 'author'], value: 'Nigel Rees' },
 //   { path: ['$', 'store', 'book', 1, 'author'], value: 'Evelyn Waugh' },
@@ -157,7 +157,7 @@ Runs the supplied function `fn` on each matching element, and replaces each matc
 
 
 ```javascript
-var nodes = jp.apply(data, '$..author', function(value) { return value.toUpperCase() });
+let nodes = jp.apply(data, '$..author', function(value) { return value.toUpperCase() });
 // [
 //   { path: ['$', 'store', 'book', 0, 'author'], value: 'NIGEL REES' },
 //   { path: ['$', 'store', 'book', 1, 'author'], value: 'EVELYN WAUGH' },
@@ -171,7 +171,7 @@ var nodes = jp.apply(data, '$..author', function(value) { return value.toUpperCa
 Parse the provided JSONPath expression into path components and their associated operations.
 
 ```javascript
-var path = jp.parse('$..author');
+let path = jp.parse('$..author');
 // [
 //   { expression: { type: 'root', value: '$' } },
 //   { expression: { type: 'identifier', value: 'author' }, operation: 'member', scope: 'descendant' }
@@ -183,7 +183,7 @@ var path = jp.parse('$..author');
 Returns a path expression in string form, given a path.  The supplied path may either be a flat array of keys, as returned by `jp.nodes` for example, or may alternatively be a fully parsed path expression in the form of an array of path components as returned by `jp.parse`.
 
 ```javascript
-var pathExpression = jp.stringify(['$', 'store', 'book', 0, 'author']);
+let pathExpression = jp.stringify(['$', 'store', 'book', 0, 'author']);
 // "$.store.book[0].author"
 ```
 
