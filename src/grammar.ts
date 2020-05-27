@@ -2,6 +2,10 @@ import { TOKENS } from './tokens';
 import * as fs from 'fs';
 import * as path from 'path';
 
+/**
+ * @internal
+ * @hidden
+ */
 let grammar = {
     lex: {
         macros: {
@@ -104,4 +108,8 @@ let grammar = {
 grammar.moduleInclude = fs.readFileSync(path.join(__dirname, '..', 'include', 'module.js')).toString();
 grammar.actionInclude = fs.readFileSync(path.join(__dirname, '..', 'include', 'action.js')).toString();
 
+/**
+ * @internal
+ * @hidden
+ */
 export const GRAMMAR = grammar;

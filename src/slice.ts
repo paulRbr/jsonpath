@@ -1,4 +1,8 @@
 
+/**
+ * @internal
+ * @hidden
+ */
 export function slice(arr : any[], start? : number, end? : number, step? : number) {
   function integer(val) {
     return String(val).match(/^[0-9]+$/) ? parseInt(val) :

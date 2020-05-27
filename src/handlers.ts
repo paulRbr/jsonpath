@@ -6,6 +6,10 @@ import { uniq as _uniq } from 'underscore';
 import { JSONPath } from '.';
 import _evaluate from 'static-eval';
 
+/**
+ * @internal
+ * @hidden
+ */
 function traverser(recurse?) {
   return function(partial, ref, passable, count) {
 
@@ -49,6 +53,10 @@ function traverser(recurse?) {
   }
 }
 
+/**
+ * @internal
+ * @hidden
+ */
 function evaluate(ast: ESTree.Expression, vars: Record<string,any>) {
   try { 
     return _evaluate(ast, vars);
@@ -56,18 +64,30 @@ function evaluate(ast: ESTree.Expression, vars: Record<string,any>) {
   }
 }
 
+/**
+ * @internal
+ * @hidden
+ */
 function _descend(passable) {
   return function(component, partial, count) {
     return this.descend(partial, component.expression.value, passable, count);
   }
 }
 
+/**
+ * @internal
+ * @hidden
+ */
 function _traverse(passable) {
   return function(component, partial, count) {
     return this.traverse(partial, component.expression.value, passable, count);
   }
 }
 
+/**
+ * @internal
+ * @hidden
+ */
 function unique(results : any[]) {
   results = results.filter(d => d);
 
@@ -77,20 +97,40 @@ function unique(results : any[]) {
   );
 }
 
+
+/**
+ * @internal
+ * @hidden
+ */
 function _parse_nullable_int(val) {
   var sval = String(val);
   return sval.match(/^-?[0-9]+$/) ? parseInt(sval) : null;
 }
 
+
+/**
+ * @internal
+ * @hidden
+ */
 function is_array(val) {
   return Array.isArray(val);
 }
 
+
+/**
+ * @internal
+ * @hidden
+ */
 function is_object(val) {
   // is this a non-array, non-null object?
   return val && !(val instanceof Array) && val instanceof Object;
 }
 
+
+/**
+ * @internal
+ * @hidden
+ */
 function eval_recurse(partial, src, template) {
 
   var ast = aesprim.parse(src).body[0].expression;
@@ -105,6 +145,10 @@ function eval_recurse(partial, src, template) {
   return results;
 }
 
+/**
+ * @internal
+ * @hidden
+ */
 export class Handlers {
   constructor() {
     this.initialize();

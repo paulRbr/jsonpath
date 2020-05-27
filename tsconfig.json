@@ -14,5 +14,19 @@
     },
     "include": [
         "./src/**/*.ts"
-    ]
+    ],
+    "typedocOptions": {
+        "mode": "file",
+        "out": "docs",
+        "target": "ES5",
+        "excludeExternals": true,
+        "excludePrivate": true,
+        "excludeNotExported": true,
+        "externalPattern": "**/node_modules/**",
+        "exclude": ["**/node_modules/**", "**/*.test.ts"],
+        "categoryOrder": [
+          "Entrypoint",
+          "*"
+        ]
+    }
 }

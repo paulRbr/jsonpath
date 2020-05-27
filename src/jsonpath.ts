@@ -1,17 +1,12 @@
 import { Handlers } from "./handlers";
 import { TOKENS } from './tokens';
-
-var assert = require('assert');
-
 import { Parser } from './parser';
 
-function _is_string(obj) {
-  return Object.prototype.toString.call(obj) == '[object String]';
-}
+import assert from 'assert';
 
 export class JSONPath {
-  static parse(string : string): JSONPath {
-    assert.ok(_is_string(string), "we need a path");
+  static parse(string : string) {
+    assert.ok(typeof string === 'string', "we need a path");
     return new Parser().parse(string);
   }
 
@@ -60,14 +55,14 @@ export class JSONPath {
     return this.query(obj, this.stringify(path), 1).shift();
   }
   
-  static _vivify(obj, string, value) {
+  private static _vivify(obj, string, value) {
     var self = this;
 
     assert.ok(obj instanceof Object, "obj needs to be an object");
     assert.ok(string, "we need a path");
 
     var path = new Parser().parse(string)
-      .map(function(component) { return component.expression.value });
+      .map(component => component.expression.value);
 
     var setValue = function(path, value) {
       var key = path.pop();
@@ -84,7 +79,7 @@ export class JSONPath {
 
   static query(obj : Object, string, count?) {
     assert.ok(obj instanceof Object, "obj needs to be an object");
-    assert.ok(_is_string(string), "we need a path");
+    assert.ok(typeof string === 'string', "we need a path");
   
     var results = this.nodes(obj, string, count)
       .map(function(r) { return r.value });
@@ -181,7 +176,7 @@ export class JSONPath {
     return string;
   }
   
-  static _normalize(path) {
+  private static _normalize(path) {
     assert.ok(path, "we need a path");
 
     if (typeof path == "string") {

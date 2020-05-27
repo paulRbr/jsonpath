@@ -1,3 +1,8 @@
+/**
+ * Defines the token types of JSONPath by regular expression.
+ * @internal
+ * @hidden
+ */
 export const TOKENS = {
   identifier: "[a-zA-Z_]+[a-zA-Z0-9_]*",
   integer: "-?(?:0|[1-9][0-9]*)",
