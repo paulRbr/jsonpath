@@ -8,6 +8,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc -p .",
+    "prepublishOnly": "npm run build && npm run docs",
     "docs": "typedoc src",
     "generate": "ts-node generate-parser.ts",
     "test": "npm run build && node dist/test.js"
