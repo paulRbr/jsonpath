@@ -2,7 +2,7 @@ import { Handlers } from "./handlers";
 import { TOKENS } from './tokens';
 import { Parser } from './parser';
 
-import assert from 'assert';
+import { assert } from './assert';
 
 export class JSONPath {
   static parse(string : string) {
