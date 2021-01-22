@@ -1,4 +1,4 @@
-# @astronautlabs/jsonpath [![CircleCI](https://circleci.com/gh/astronautlabs/jsonpath.svg?style=svg)](https://circleci.com/gh/astronautlabs/jsonpath) 
+# @/jsonpath [![CircleCI](https://circleci.com/gh/astronautlabs/jsonpath.svg?style=svg)](https://circleci.com/gh/astronautlabs/jsonpath) 
 
 [![npm (scoped)](https://img.shields.io/npm/v/@astronautlabs/jsonpath?style=flat-square)](https://npmjs.com/package/@astronautlabs/jsonpath)
 
